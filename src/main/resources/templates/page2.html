@@ -16,5 +16,14 @@
 <div>
     User data: <span th:text="${userAttributes}"></span>
 </div>
+<p/>
+
+<!--If the user is logged in, show the logout button-->
+<form method="post" th:action="/logout" th:if="${#authorization.expression('isAuthenticated()')}"
+      class="navbar-form navbar-right">
+    <input type="hidden"  th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <button id="logout-button" type="submit">Logout</button>
+</form>
+
 </body>
 </html>
