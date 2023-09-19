@@ -15,17 +15,11 @@
 <p/>
 
 <!--If the user is logged in, show the logout button-->
-<form method="post" th:action="/logout" th:if="${#authorization.expression('isAuthenticated()')}"
+<form method="post" th:action="@{/logout}" th:if="${#authorization.expression('isAuthenticated()')}"
       class="navbar-form navbar-right">
-    <input type="hidden"  th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
     <button id="logout-button" type="submit">Logout</button>
 </form>
-
-<!--<form method="post" th:action="@{/logout}" th:if="${#authorization.expression('isAuthenticated()')}"-->
-<!--      class="d-flex" style="margin-block-end: inherit">-->
-<!--    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
-<!--    <button id="logout-button" class="btn btn-danger" type="submit">Logout</button>-->
-<!--</form>-->
 
 </body>
 </html>
